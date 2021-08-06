@@ -47,11 +47,11 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
    $router->delete('beneficiarios/{id}', 'BeneficiarioController@delete');
 
    //Reacion
-   $router->get('reaciones', 'ReacionController@index');
-   $router->get('reaciones/{id}', 'ReacionController@show');
-   $router->post('reaciones', 'ReacionController@store');
-   $router->put('reaciones/{id}', 'ReacionController@update');
-   $router->delete('reaciones/{id}', 'ReacionController@delete');
+   //$router->get('reaciones', 'ReacionController@index');
+   //$router->get('reaciones/{id}', 'ReacionController@show');
+   $router->post('reaciones/votar', 'ReacionController@votar');
+   //$router->put('reaciones/{id}', 'ReacionController@update');
+   //$router->delete('reaciones/{id}', 'ReacionController@delete');
 
    //Triage
    $router->get('triages', 'TriageController@index');
