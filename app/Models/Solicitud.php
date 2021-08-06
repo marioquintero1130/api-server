@@ -20,13 +20,14 @@ class Solicitud extends Model
         'cita_id',
         'puntuacion',       
         'comentario',        
-        
-        /*
         'created_by',
-        'updated_by',
-        'deleted_by'
-        */
+        'created_at',
     ];
 
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = [
+        'updated_at',
+        'deleted_at',
+        'created_by',
+        'updated_by',
+        'deleted_by'];
 }

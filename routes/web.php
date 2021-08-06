@@ -35,7 +35,7 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
    //Solicitudes
    $router->get('solicitudes', 'SolicitudController@index');
    $router->post('solicitudes', 'SolicitudController@store');
-   $router->get('solicitudes/{id}', 'SolitudController@show');
+   $router->get('solicitudes/{id}', 'SolicitudController@show');
    $router->put('solicitudes/{id}', 'SolicitudController@update');
    $router->delete('solicitudes/{id}', 'SolicitudController@delete');
 
