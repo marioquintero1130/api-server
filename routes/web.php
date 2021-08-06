@@ -27,6 +27,10 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
 
    //Publicaciones
    $router->get('publicaciones', 'PublicacionController@index');
+   $router->get('publicaciones/{id}', 'PublicacionController@show');
+   $router->post('publicaciones', 'PublicacionController@store');
+   $router->put('publicaciones/{id}','PublicacionController@update');
+   $router->delete('publicaciones/{id}', 'PublicacionController@delete');
 
    //Solicitudes
    $router->get('solicitudes', 'SolicitudController@index');
@@ -36,47 +40,24 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
    $router->delete('solicitudes/{id}', 'SolicitudController@delete');
 
    //Beneficiario
-   $router->get('beneficiarios', ['as' => 'beneficiarios', 'uses' => 'BeneficiarioController@index']);
-   $router->post('beneficiarios', ['as' => 'beneficiarios.store', 'uses' => 'BeneficiarioController@store']);
-   $router->get('beneficiarios/{id}', ['as' => 'beneficiarios.show', 'uses' => 'BeneficiarioController@show']);
-   $router->put('beneficiarios/{id}', ['as' => 'beneficiarios.update', 'uses' => 'BeneficiarioController@update']);
-   $router->delete('beneficiarios/{id}', ['as' => 'beneficiarios.delete', 'uses' => 'BeneficiarioController@delete']);
+   $router->get('beneficiarios',  'BeneficiarioController@index');
+   $router->post('beneficiarios', 'BeneficiarioController@store');
+   $router->get('beneficiarios/{id}', 'BeneficiarioController@show');
+   $router->put('beneficiarios/{id}', 'BeneficiarioController@update');
+   $router->delete('beneficiarios/{id}', 'BeneficiarioController@delete');
 
    //Reacion
-   $router->get('reaciones', ['as' => 'reaciones', 'uses' => 'ReacionController@index']);
-   $router->get('reaciones/{id}', ['as' => 'reaciones.show', 'uses' => 'ReacionController@show']);
-   $router->post('reaciones', ['as' => 'reaciones.store', 'uses' => 'ReacionController@store']);
-   $router->put('reaciones/{id}', ['as' => 'reaciones.update', 'uses' => 'ReacionController@update']);
-   $router->delete('reaciones/{id}', ['as' => 'reaciones.delete', 'uses' => 'ReacionController@delete']);
+   $router->get('reaciones', 'ReacionController@index');
+   $router->get('reaciones/{id}', 'ReacionController@show');
+   $router->post('reaciones', 'ReacionController@store');
+   $router->put('reaciones/{id}', 'ReacionController@update');
+   $router->delete('reaciones/{id}', 'ReacionController@delete');
 
    //Triage
-   $router->get('triages', ['as' => 'triages', 'uses' => 'TriageController@index']);
-   $router->get('triages/{id}', ['as' => 'triages.show', 'uses' => 'TriageController@show']);
-   $router->post('triages', ['as' => 'triages.store', 'uses' => 'TriageController@store']);
-   $router->put('triages/{id}', ['as' => 'triages.update', 'uses' => 'TriageController@update']);
-   $router->delete('triages/{id}', ['as' => 'triages.delete', 'uses' => 'TriageController@delete']);
-
+   $router->get('triages', 'TriageController@index');
+   $router->get('triages/{id}', 'TriageController@show');
+   $router->post('triages','TriageController@store');
+   $router->put('triages/{id}', 'TriageController@update');
+   $router->delete('triages/{id}', 'TriageController@delete');
    
-
-   
-
-
 });
-
-/*
-
-
-$router->group(['middleware' => 'auth'], function () use ($router) {
-
-   $router->get('directorios', ['as' => 'directorios', 'uses' => 'DirectorioController@index']);
-   $router->get('directorios/{id}', ['as' => 'directorios.show', 'uses' => 'DirectorioController@show']);
-   $router->post('directorios', ['as' => 'directorios.store', 'uses' => 'DirectorioController@store']);
-   $router->put('directorios/{id}', ['as' => 'directorios.update', 'uses' => 'DirectorioController@update']);
-   $router->delete('directorios/{id}', ['as' => 'directorios.delete', 'uses' => 'DirectorioController@delete']);
-
-   
-
-   $router->get('user', function () use ($router) {
-       return auth()->user();
-   });
-});*/
