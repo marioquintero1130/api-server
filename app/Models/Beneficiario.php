@@ -14,13 +14,14 @@ class Beneficiario extends Model
         'estado_id',
         'persona_id',        
         'usuario_id',        
-        
-        /*
+        'created_at',
         'created_by',
-        'updated_by',
-        'deleted_by'
-        */
     ];
 
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = [
+        'updated_at',
+        'deleted_at',
+        'updated_by',
+        'deleted_by'
+    ];
 }
