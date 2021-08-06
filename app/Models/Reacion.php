@@ -11,8 +11,8 @@ class Reacion extends Model
     protected $table = 'mvreaciones';
 
     protected $fillable = [
-        'estado_id',
-        'publicaciones_id',        
+        'usuario_id',
+        'publicacion_id',        
         'tiporeacion_id',        
         
         /*
