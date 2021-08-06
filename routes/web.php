@@ -20,20 +20,20 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'v1'], function () use ($router) {
 
    // Auth
-   $router->post('usuarios', ['as' => 'users.store', 'uses' => 'UsuarioController@store']);
-   $router->post('login/email', ['as' => 'signinWithEmail', 'uses' => 'UsuarioController@signInWithEmail']);
-   $router->post('login/username', ['as' => 'signinWithUsername', 'uses' => 'UsuarioController@signInWithUsername']);
-   $router->post('logout', ['as' => 'logout', 'uses' => 'UsuarioController@logout']);
+   $router->post('usuarios', 'UsuarioController@store');
+   $router->post('login/email', 'UsuarioController@signInWithEmail');
+   $router->post('login/username', 'UsuarioController@signInWithUsername');
+   $router->post('logout', 'UsuarioController@logout');
 
-   //Posts
-   $router->get('publicaciones', ['as' => 'publicaciones', 'uses' => 'PublicacionController@index']);
+   //Publicaciones
+   $router->get('publicaciones', 'PublicacionController@index');
 
-   //Solicitud
-   $router->get('solicitudes', ['as' => 'solicitudes', 'uses' => 'SolicitudController@index']);
-   $router->post('solicitudes', ['as' => 'solicitudes.store', 'uses' => 'SolicitudController@store']);
-   $router->get('solicitudes/{id}', ['as' => 'solcitudes.show', 'uses' => 'SolitudController@show']);
-   $router->put('solicitudes/{id}', ['as' => 'solicitudes.update', 'uses' => 'SolicitudController@update']);
-   $router->delete('solicitudes/{id}', ['as' => 'solicitudes.delete', 'uses' => 'SolicitudController@delete']);
+   //Solicitudes
+   $router->get('solicitudes', 'SolicitudController@index');
+   $router->post('solicitudes', 'SolicitudController@store');
+   $router->get('solicitudes/{id}', 'SolitudController@show');
+   $router->put('solicitudes/{id}', 'SolicitudController@update');
+   $router->delete('solicitudes/{id}', 'SolicitudController@delete');
 
    //Beneficiario
    $router->get('beneficiarios', ['as' => 'beneficiarios', 'uses' => 'BeneficiarioController@index']);
