@@ -33,7 +33,7 @@ class UsuarioController extends Controller
 
             return response()->json([
                 'sucess' => true,
-                'token' => $user->apitoken,
+                'data' => $user,
                 'message' => 'Bienvenido al sistema'
             ]);
         } else {
@@ -55,13 +55,13 @@ class UsuarioController extends Controller
 
             return response()->json([
                 'sucess' => true,
-                'token' => $user->apitoken,
+                'data' => $user,
                 'message' => 'Bienvenido al sistema'
             ]);
         } else {
             return response()->json([
                 'sucess' => false,
-                'message' => 'Correo o contraseña incorrectos'
+                'message' => 'Usuario o contraseña incorrectos'
             ]);
         }
     }

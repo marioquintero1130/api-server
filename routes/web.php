@@ -14,7 +14,11 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return response()->json([
+        'name' => env('APP_NAME'),
+        'version' => env('APP_VERSION'),
+        'router' => $router->app->version()
+    ]);
 });
 
 $router->group(['prefix' => 'v1'], function () use ($router) {
@@ -33,8 +37,8 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
    $router->delete('publicaciones/{id}', 'PublicacionController@delete');
 
    //Solicitudes
-   $router->get('solicitudes', 'SolicitudController@index');
-   $router->post('solicitudes', 'SolicitudController@store');
+   $router->get('solicitudes', 'SolicitudController@index');                // [OK]
+   $router->post('solicitudes', 'SolicitudController@store');               // [OK] 
    $router->get('solicitudes/{id}', 'SolicitudController@show');
    $router->put('solicitudes/{id}', 'SolicitudController@update');
    $router->delete('solicitudes/{id}', 'SolicitudController@delete');
@@ -47,11 +51,7 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
    $router->delete('beneficiarios/{id}', 'BeneficiarioController@delete');
 
    //Reacion
-   //$router->get('reaciones', 'ReacionController@index');
-   //$router->get('reaciones/{id}', 'ReacionController@show');
    $router->post('reaciones/votar', 'ReacionController@votar');
-   //$router->put('reaciones/{id}', 'ReacionController@update');
-   //$router->delete('reaciones/{id}', 'ReacionController@delete');
 
    //Triage
    $router->get('triages', 'TriageController@index');

@@ -17,7 +17,7 @@ class Publicacion extends Model
         'usuario_id',
         'publicacion_id',
         'tipopublicacion_id',
-        'tipoetiqueta_id',
+        'etiqueta_id',
         'created_by',
         'created_at',
     ];
