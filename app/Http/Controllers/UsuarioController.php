@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Persona;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -53,14 +54,21 @@ class UsuarioController extends Controller
             $user->apitoken = Str::random(150);
             $user->save();
 
+            $person = Persona::find($user->persona_id);
+
+            $user->telefono = $person->telefonomovil;
+            $user->codigo = null;
+            $user->correo = $person->email;
+
             return response()->json([
-                'sucess' => true,
+                'success' => true,
                 'data' => $user,
                 'message' => 'Bienvenido al sistema'
             ]);
         } else {
             return response()->json([
-                'sucess' => false,
+                'success' => false,
+                'data' => null,
                 'message' => 'Usuario o contraseña incorrectos'
             ]);
         }
