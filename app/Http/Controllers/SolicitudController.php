@@ -113,7 +113,7 @@ class SolicitudController extends Controller
 		$path = base_path($base) . $nameFile;  
 		$im = imagecreatefromstring($data);
 		if ($im !== false) {		
-			if(imagepng($im, $path)){
+			if(imagepng($im, $path, 5)){
 				imagedestroy($im);
             }
         }

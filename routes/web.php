@@ -17,6 +17,7 @@ $router->get('/', function () use ($router) {
     return response()->json([
         'name' => env('APP_NAME'),
         'version' => env('APP_VERSION'),
+        'build' => env('APP_BUILD'),
         'router' => $router->app->version()
     ]);
 });
@@ -24,9 +25,11 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'v1'], function () use ($router) {
 
    // Auth
-   $router->post('usuarios', 'UsuarioController@store');
+   $router->post('usuarios', 'UsuarioController@store');                    // [OK]
+   $router->put('usuarios/{id}', 'UsuarioController@update');               // [OK]
    $router->post('login/email', 'UsuarioController@signInWithEmail');
-   $router->post('login/username', 'UsuarioController@signInWithUsername');
+   $router->post('login/username', 'UsuarioController@signInWithUsername'); // [OK]
+   $router->post('login/token', 'UsuarioController@signInWithToken');
    $router->post('logout', 'UsuarioController@logout');
 
    //Personas

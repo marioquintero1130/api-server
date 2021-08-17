@@ -113,20 +113,11 @@ class PersonaController extends Controller
 		$path = base_path($base) . $nameFile;  
 		$im = imagecreatefromstring($data);
 		if ($im !== false) {		
-			if(imagepng($im, $path)){
+			if(imagepng($im, $path, 5)){
 				imagedestroy($im);
             }
         }
         return $base . $nameFile;
-    }
-
-    private function hasActive($request)
-    {
-        $solicitudes = Solicitud::where('persona_id', $request->persona_id)->where('prioridad_id', NULL)->get();
-        if (empty($solicitudes[0])) {
-            return false;
-        }
-        return true;
     }
 
 }
