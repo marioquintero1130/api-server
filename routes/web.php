@@ -29,6 +29,13 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
    $router->post('login/username', 'UsuarioController@signInWithUsername');
    $router->post('logout', 'UsuarioController@logout');
 
+   //Personas
+   $router->get('personas', 'PersonaController@index');
+   $router->get('personas/{id}', 'PersonaController@show');
+   $router->post('personas', 'PersonaController@store');
+   $router->put('personas/{id}','PersonaController@update');
+   $router->delete('personas/{id}', 'PersonaController@delete');
+
    //Publicaciones
    $router->get('publicaciones', 'PublicacionController@index');
    $router->get('publicaciones/{id}', 'PublicacionController@show');

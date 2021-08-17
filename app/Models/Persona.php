@@ -11,6 +11,7 @@ class Persona extends Model
     protected $table = 'personas';
 
     protected $fillable = [
+        'tipoidentificacion_id',
         'identificacion',
         'direccion',        
         'telefonomovil',

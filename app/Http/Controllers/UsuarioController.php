@@ -14,7 +14,10 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        $person = Persona::create($input);
+
         $input['password'] = Hash::make($request->password);
+        $input['persona_id'] = $person->id;
         User::create($input);
 
         return response()->json([
