@@ -32,6 +32,10 @@ $router->group(['prefix' => 'v1'], function () use ($router) {
    $router->post('login/token', 'UsuarioController@signInWithToken');
    $router->post('logout', 'UsuarioController@logout');
 
+   //Firebase
+   $router->post('firebase/token/{id}', 'FirebaseController@sendByToken');
+   $router->post('firebase/topic/{id}', 'FirebaseController@sendByTopic');
+
    //Personas
    $router->get('personas', 'PersonaController@index');
    $router->get('personas/{id}', 'PersonaController@show');
